@@ -1,10 +1,23 @@
-public class CountCharacters {
-    
-        // TODO: Read the string line
-        // TODO: Initialize counters for vowels, consonants, digits, special
-        // TODO: Convert to lowercase for easier checking (optional but recommended)
-        // TODO: Iterate through characters and update counters
-        // Hint: Character.isDigit(ch), Character.isLetter(ch) might be useful
-        // TODO: Print the 4 counts separated by spaces
-    
+import java.util.Scanner;
+
+public class CountCharacters {    
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String S = sc.nextLine();
+        // initialized counters
+        int vowels = 0, consonants = 0, digits = 0, special = 0;
+        S = S.toLowerCase();
+
+        // iterating through characters and update counters
+        for(int i = 0; i< S.length(); i++){
+            Character ch = S.charAt(i);
+            if(Character.isDigit(ch)) digits++;
+            else if(Character.isLetter(ch)){
+                if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') vowels++;
+                else consonants++;
+            } else special++;
+        }
+        
+        System.out.print(vowels+" "+consonants+" "+digits+" "+special);
+    }
 }
